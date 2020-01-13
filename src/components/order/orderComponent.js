@@ -25,50 +25,21 @@ class Order extends Component {
     }
 
 
-    sessionStatuscheck = () => {
-
-        console.log('came here')
-
-        this.props.history.push('/deliveryaddress');
-
-    }
-
-
     loadbutton() {
 
         const loggedIn = localStorage.getItem('loggenIn');
-        if (loggedIn !== null && loggedIn === true) {
+        if (loggedIn) {
+            console.log(`loggedIn inside if`);
             return (
                 <Link to='/deliveryaddress'><button type="button" className="btn btn-primary mr-5" >Proceed</button></Link>
             )
-            // this.props.history.push('/deliveryaddress');
         } else {
-
             return (
                 <Link to='/login'><button type="button" className="btn btn-primary mr-5" >Proceed</button></Link>
             )
-            //this.props.history.push('/login');
         }
 
     }
-
-    navToprocced = () => {
-        const loggedIn = localStorage.getItem('loggenIn');
-        if (loggedIn !== null && loggedIn === true) {
-            return (
-                <Link to='/deliveryaddress'><button type="button" className="btn btn-primary mr-5" >Proceed</button></Link>
-            )
-            // this.props.history.push('/deliveryaddress');
-        } else {
-
-            return (
-                <Link to='/login'><button type="button" className="btn btn-primary mr-5" >Proceed</button></Link>
-            )
-            //this.props.history.push('/login');
-        }
-    }
-
-
 
     render() {
         return (

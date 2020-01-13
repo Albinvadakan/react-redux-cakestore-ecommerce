@@ -10,11 +10,11 @@ class Payment extends Component {
     }
 
     pay = () => {
-        alert('Payment done successfully!!');
+        setTimeout(() => { alert('Payment done succesfully..! ') }, 1000);
         const cartObj = { cartarray: [] };
         localStorage.setItem('cart', JSON.stringify(cartObj));
         this.props.emptycart();
-        setTimeout(() => { this.props.history.push('/cakelist'); }, 1000);
+        setTimeout(() => { this.props.history.push('/cakelist'); }, 1500);
     }
 
     render() {
