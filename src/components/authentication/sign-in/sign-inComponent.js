@@ -12,6 +12,7 @@ class Login extends Component {
         this.state = {
             username: '',
             password: '',
+            errormsg: false
         };
     }
 
@@ -23,7 +24,8 @@ class Login extends Component {
 
     onChange = (e) => {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+            errormsg: false
         })
     }
 
@@ -33,6 +35,10 @@ class Login extends Component {
             if (this.state.username === 'Albin' && this.state.password === 'thbs123') {
                 localStorage.setItem('loggenIn', true);
                 this.props.history.push('/deliveryaddress');
+            } else {
+                this.setState({
+                    errormsg: true
+                })
             }
         }
     }
@@ -56,6 +62,11 @@ class Login extends Component {
                                 <div className="form-group d-flex justify-content-center">
                                     <button type="submit" className="btn btn-primary" >Login</button>
                                 </div>
+                                {
+                                    this.state.errormsg && <div className=" w-100  text-center">
+                                        <p>Login Failed!!!</p>
+                                    </div>
+                                }
                             </form>
                         </div>
                     </div>
