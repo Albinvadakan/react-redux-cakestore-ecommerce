@@ -31,7 +31,8 @@ class Delevery extends Component {
         })
     }
 
-    addnewAddress = () => {
+    addnewAddress = (e) => {
+        e.preventDefault();
         const addressObj = { name: this.state.name, phone: this.state.phone, pincode: this.state.pincode, building: this.state.building, place: this.state.place, landmark: this.state.landmark, city: this.state.city, state: this.state.state, type: this.state.type }
         this.props.adddaddress(addressObj);
         this.props.loadaddress();

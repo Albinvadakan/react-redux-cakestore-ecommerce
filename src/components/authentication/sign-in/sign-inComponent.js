@@ -16,7 +16,6 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        console.log(window.location.href);
         this.props.signinpagecheckup(window.location.href);
     }
 
@@ -28,8 +27,8 @@ class Login extends Component {
         })
     }
 
-    simplelogin = () => {
-
+    simplelogin = (e) => {
+        e.preventDefault();
         if (this.state.username !== '' && this.state.password !== '') {
             if (this.state.username === 'Albin' && this.state.password === 'thbs123') {
                 localStorage.setItem('loggenIn', true);
@@ -46,9 +45,9 @@ class Login extends Component {
                     <div className="card-body ">
                         <h5 className="text-center"><b>CAKE STORE</b></h5>
                         <div className="d-flex justify-content-center ">
-                            <form className="w-75" onSubmit={this.simplelogin()}>
+                            <form className="w-75" onSubmit={this.simplelogin}>
                                 <div className="form-group w-100  ">
-                                    <input type="email" className="form-control " placeholder="User name" name='username' value={this.state.username} onChange={this.onChange.bind(this)} />
+                                    <input type="text" className="form-control " placeholder="User name" name='username' value={this.state.username} onChange={this.onChange.bind(this)} />
                                 </div>
                                 <div className="form-group w-100">
                                     <input type="password" className="form-control" name='password' placeholder="Password" value={this.state.password} onChange={this.onChange.bind(this)} />
